@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 
-const images = ["/images/bg-kairo-1.png",
-    "/images/bg-skyrim-1.png",
-    "/images/bg-wow-1.jpg"];
+import imgList from '../assets/imageList.json'
+
+const images = imgList
+
 
 let current = ref(0);
 
@@ -13,14 +14,13 @@ async function changeBackground() {
     } else {
         this.current = 0;
     }
-
 }
 
 </script>
 
 <template>
     <Transition name="fade">
-        <img class="bgimg" @click="changeBackground()" :src="images[current]" :key="current" />
+        <img class="bgimg" @click="changeBackground()" :src="'images/'+images[current]" :key="current" />
     </Transition>
 </template>
 
