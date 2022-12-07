@@ -9,11 +9,11 @@ const images = imgList
 let current = ref(0);
 
 async function changeBackground() {
-    if (this.current < this.images.length - 1) {
-        this.current = this.current + 1;
-    } else {
-        this.current = 0;
+    let newImg = Math.floor(Math.random() * this.images.length)
+    while (newImg == this.current) {
+        newImg = Math.floor(Math.random() * this.images.length)
     }
+    this.current = newImg
 }
 
 </script>
